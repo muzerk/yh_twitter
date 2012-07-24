@@ -6,8 +6,14 @@ class ShowcasesController < ApplicationController
 	end
 
 
-	def show
-		@lastShownTweet = Tweet.find(:first, 
-                        		:order => "id_str DESC")
+	def load
+		@lastShownTweet = Tweet.where(:shown => false).order('id_str DESC').last
+		debugger
+		if @lastShownTweet.nil?
+			render :text => 'shown false is nil'
+		else
+			render :text => 'shown false is not nil'
+		end
+
 	end
 end

@@ -13,7 +13,11 @@ YhTwitter::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
      resources :tweets
-     resources :showcases
+     resources :showcases do
+        collection do
+          get 'load'
+        end
+     end
      
 
   # Sample resource route with options:

@@ -5,6 +5,7 @@
 		<th>USER IMAGE</th>
 		<th>TEXT</th>
 		<th>CURATED</th>
+		<th>SHOWN</th>
 		<th>DELETE</th>
 	</tr>
 <% @tweets.each do |tweet| %>
@@ -18,6 +19,9 @@
 		<td>
 			<span class="status"><%= tweet.curated %></span><br/>
 			<%= link_to 'Toggle',  '#', :class=> 'toggle_btn'%>
+		</td>
+		<td>
+			<%= tweet.shown %>
 		</td>
 		<td>
 			<%= link_to 'Delete',  '#', :class=> 'delete_btn'%>

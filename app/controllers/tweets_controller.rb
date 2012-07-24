@@ -19,7 +19,7 @@ class TweetsController < ApplicationController
 		end
 
 		@newTweets.map do |status|
-		  Tweet.create(:id_str => status.id, :text => status.text, :from_user => status.from_user, :profile_image_url => status.profile_image_url, :curated => false)
+		  Tweet.create(:id_str => status.id, :text => status.text, :from_user => status.from_user, :profile_image_url => status.profile_image_url, :curated => false, :shown => false)
 		end
 
 		redirect_to tweets_path
