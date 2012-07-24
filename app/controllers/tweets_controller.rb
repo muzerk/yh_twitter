@@ -8,13 +8,15 @@ class TweetsController < ApplicationController
 	end
 
 	def new
+
+		search_string = "#yhtest"
 		@lastTweet = Tweet.find(:first, 
                         		:order => "id_str DESC")
 		if @lastTweet.nil?
-			@newTweets = Twitter.search("@we_alive", :rpp => 100, :result_type => "recent").results
+			@newTweets = Twitter.search(search_string, :rpp => 100, :result_type => "recent").results
 			@status = 'first parse'
 		else
-			@newTweets = Twitter.search("@we_alive", :rpp => 100, :result_type => "recent", :since_id => @lastTweet.id_str).results
+			@newTweets = Twitter.search(search_string, :rpp => 100, :result_type => "recent", :since_id => @lastTweet.id_str).results
 			@status = 'not first parse'
 		end
 
@@ -45,5 +47,31 @@ class TweetsController < ApplicationController
     	@tweet.destroy
 
 		render :json => {:success => true, :message => 'Delete Tweet Successfully'}
+	end
+
+	def load
+		lastShownTweet = Tweet.where(:shown => false, :curated => true).order('id_str DESC').last
+		
+		if lastShownTweet.nil?
+			tweet = Tweet.where(:curated => true).order("RAND()").first
+			if tweet.nil?
+				tweet = nil
+			end
+		else
+			tweet = lastShownTweet
+		end
+
+		if tweet != nil
+
+			tweet.shown = true if tweet.shown == false
+
+			tweet.save
+			render :json => {:presence => true, :from_user => tweet.from_user, :profile_image_url => tweet.profile_image_url , :text => tweet.text }
+		else
+			render :json => {:presence => false}
+		end
+		
+
+		
 	end
 end

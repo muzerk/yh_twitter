@@ -12,12 +12,12 @@ YhTwitter::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-     resources :tweets
-     resources :showcases do
-        collection do
-          get 'load'
-        end
+     resources :tweets do
+      collection do
+        get 'load'
+      end
      end
+     resources :showcases
      
 
   # Sample resource route with options:
