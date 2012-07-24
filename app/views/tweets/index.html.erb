@@ -1,0 +1,36 @@
+<table class="tweets" cellspacing="0" cellpadding="0">
+	<tr>
+		<th>TWEET ID</th>
+		<th>USER ID</th>
+		<th>USER IMAGE</th>
+		<th>TEXT</th>
+		<th>CURATED</th>
+		<th>DELETE</th>
+	</tr>
+<% @tweets.each do |tweet| %>
+	<tr class='tweet<%= " curated" if tweet.curated == true %>' data-curated="<%= tweet.curated %>" data-href="<%=tweet_path(tweet) %>">
+
+
+		<td><%= tweet.id_str %></td>
+		<td><%= tweet.from_user %></td>
+		<td><img src="<%= tweet.profile_image_url %>"/></td>
+		<td><span class="text"><%= tweet.text %></span></td>
+		<td>
+			<span class="status"><%= tweet.curated %></span><br/>
+			<%= link_to 'Toggle',  '#', :class=> 'toggle_btn'%>
+		</td>
+		<td>
+			<%= link_to 'Delete',  '#', :class=> 'delete_btn'%>
+		</td>
+	</tr>
+	<% end %>
+</table>
+last tweet id:<%= @lastTweet.id_str unless @lastTweet.nil? %><br/>
+new Tweet Length : <%= @newTweets.length unless @newTweets.nil? %><br/>
+<%= @status unless @status.nil? %>
+<%= link_to "새로받아오기", new_tweet_path %>
+<script type="text/javascript">
+  $(document).ready(function(e){
+    tweets_view();
+  });
+</script>
