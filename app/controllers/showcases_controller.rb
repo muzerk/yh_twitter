@@ -5,6 +5,9 @@ class ShowcasesController < ApplicationController
 		
 	end
 
-	def merong
+
+	def show
+		@lastShownTweet = Tweet.find(:first, 
+                        		:order => "id_str DESC")
 	end
 end
