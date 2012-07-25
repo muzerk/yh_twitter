@@ -9,7 +9,7 @@ class TweetsController < ApplicationController
 
 	def new
 
-		search_string = "#yhtest"
+		search_string = "@we_alive"
 		@lastTweet = Tweet.find(:first, 
                         		:order => "id_str DESC")
 		if @lastTweet.nil?
@@ -54,9 +54,6 @@ class TweetsController < ApplicationController
 		
 		if lastShownTweet.nil?
 			tweet = Tweet.where(:curated => true).order("RAND()").first
-			if tweet.nil?
-				tweet = nil
-			end
 		else
 			tweet = lastShownTweet
 		end
@@ -66,7 +63,7 @@ class TweetsController < ApplicationController
 			tweet.shown = true if tweet.shown == false
 
 			tweet.save
-			render :json => {:presence => true, :from_user => tweet.from_user, :profile_image_url => tweet.profile_image_url , :text => tweet.text }
+			render :json => {:presence => true, :user => tweet.from_user, :img_url => tweet.profile_image_url , :texts => tweet.text }
 		else
 			render :json => {:presence => false}
 		end
