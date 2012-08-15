@@ -1,0 +1,8 @@
+body{background: black; color:white; font-family: "KoPubDotum_Pro" ; font-weight:400; font-size:16px; line-height:162%;}
+div.full-screen {width:800px;height:178px; position:absolute;left:50%; top:50%; margin-left:-400px; margin-top: -89px; }
+div.other {float:left; width:251px; height:110px; padding-top:68px; padding-left:7px;}
+div.main {float:left; width:284px; height:178px;}
+div.main div.tweet {padding:16px; display: none;}
+div.main div.tweet div.header {border-bottom:1px solid #404040; padding-bottom: 12px; line-height: 30px;}
+div.main div.tweet div.header img.profile_img {display: block; float:left; width:30px; height:30px;margin-right: 5px;}
+div.main div.tweet p.text {margin-top:9px;height: 100px;overflow: hidden;}

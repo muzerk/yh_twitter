@@ -2,11 +2,13 @@
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}
 
 
-body{background: black; color:white; font-family: "KoPubDotum_Pro" ; font-weight:400; font-size:16px; line-height:162%;}
-div.full-screen {width:800px;height:178px; position:absolute;left:50%; top:50%; margin-left:-400px; margin-top: -89px; }
-div.other {float:left; width:251px; height:110px; padding-top:68px; padding-left:7px;}
-div.main {float:left; width:284px; height:178px;}
-div.main div.tweet {padding:16px; display: none;}
-div.main div.tweet div.header {border-bottom:1px solid #404040; padding-bottom: 12px; line-height: 30px;}
-div.main div.tweet div.header img.profile_img {display: block; float:left; width:30px; height:30px;margin-right: 5px;}
-div.main div.tweet p.text {margin-top:9px;height: 100px;overflow: hidden;}
+body{background: black; color:white; font-family: "KoPubDotum_Pro" ; font-weight:400; font-size:35px; line-height:162%; overflow: hidden;}
+div.full-screen {width:800px;height:600px; position:absolute;left:50%; top:50%; margin-left:-400px; margin-top: -300px;}
+div.other { position:absolute;width:800px;left:0;}
+div.other.first { top:0px;}
+div.other.second { bottom:0px;}
+div.main {margin-top:165px;width:800px; height:494px; font-size:50px; line-height: 150%;}
+div.main div.tweet {display: none;}
+div.main div.tweet div.header {border-bottom:1px solid #404040; padding-bottom: 28px; line-height: 50px;}
+div.main div.tweet div.header img.profile_img {display: block; float:left; width:50px; height:50px;margin-right: 5px;}
+div.main div.tweet p.text {margin-top:9px;height: 301px;overflow: hidden; }
